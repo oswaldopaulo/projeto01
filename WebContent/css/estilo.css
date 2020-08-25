@@ -13,7 +13,17 @@ body {
 .navbar {
   margin-bottom: 20px;
 }
+.detail-image {
+    width: 120px;
+    height: 100px;
+     object-fit: contain; 
+}
 
+
+
+.yellow{
+	color: yellow;
+}
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
@@ -101,6 +111,19 @@ body {
  text-align: center;
  
  
+}
+
+.detail-grid-col {
+  padding-top: 15px;
+  
+  padding-bottom: 15px;
+  text-align:left;
+
+ 
+}
+
+.header-generic {
+	margin-left: 50px; margin-top: 50px; margin-right: 50px;
 }
 
 .themed-container {
