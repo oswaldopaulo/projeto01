@@ -1,3 +1,4 @@
+
 <%@include file="header.jsp" %>
 <!-- Modal -->
 <div class="modal fade" id="ModalRemover" tabindex="-1" role="dialog" aria-labelledby="ModalRemoverTitle" aria-hidden="true">
@@ -54,8 +55,29 @@
 	  </div>
 	  
 	  	<div class="col-md-10 detail-grid-col">
+	  
 	  	
+	  	<%  if(  request.getSession().getAttribute("status")!=null) {%>
+		  	 <div class="card bg-success text-white mb-4 card mb-4" id="msg" style="padding: 5px">
+	          	<div class="card-body">
+	              	<strong>Sucesso! </strong>
+	              	<%=   request.getSession().getAttribute("status") %>
+	             </div>
+	          </div>
+		  	<% } %>
+		  	
+		  		<%  if(  request.getSession().getAttribute("erro")!=null) {%>
+		  	 <div class="card bg-danger text-white mb-4 card mb-4" id="msg2" style="padding: 5px">
+	          	<div class="card-body">
+	              	<strong>Sucesso! </strong>
+	              	<%=   request.getSession().getAttribute("erro") %>
+	             </div>
+	          </div>
+		  	<% } %>
+	  	    	
 	  	
+         <a href="produto_novo.jsp"><button type="button" class="btn btn-primary"> <i class="fa fa-edit"></i>    Novo Produto    </button></a>
+               
 	  	 <div class="table-responsive">
 		  	<table class="table table-sm">
 		  	<tr>
@@ -69,7 +91,7 @@
 		  	
 		  	 <tr>
 		  		<td style="width: 50px; white-space: nowrap;"> 
-		  			<a href="produto_editar.jsp"  title="Editar"><i class="fas fa-edit fa-fw"></i></a>
+		  			<a href="produto_editar.jsp?id=1"  title="Editar"><i class="fas fa-edit fa-fw"></i></a>
 		  			<a href="#" onclick="modal('produto_remover.jsp')"  title="Remover"><i class="fas fa-trash-alt mr-1 red"></i></a>
 		  		</td>
 		  		<td> Id </td>
@@ -105,7 +127,15 @@
 		
 		window.location.href =  $('#RemoveId').val();
 	}
+	
+	setInterval(function () {
+   	 $('#msg').hide(); // show next div
+   }, 5 * 1000); // do this every 10 seconds 
+   
 </script>
-  
+    
+
+
+
   
 <%@include file="footer.jsp" %>

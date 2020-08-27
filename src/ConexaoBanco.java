@@ -17,6 +17,7 @@ public class ConexaoBanco {
             ds.setDatabaseName(BANCO);
             ds.setUser(LOGIN);
             ds.setPassword(SENHA);
+            ds.setServerTimezone("UTC");
 
             ds.setConnectTimeout(2000);
 

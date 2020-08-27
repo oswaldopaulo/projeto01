@@ -9,6 +9,9 @@ body {
   color: #5a5a5a;
 }
 
+button{
+	margin-bottom: 10px;
+}
 
 .navbar {
   margin-bottom: 20px;

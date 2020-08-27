@@ -38,7 +38,7 @@
     			 <div class="form-group row">
                         <label for="preco" class="col-sm-1 col-form-label">Preço</label>
                         <div class="col-sm-5">
-        			      <input type="text" name="preco" id="preco" class="form-control"  required value="">
+        			      <input type="number" name="preco" id="preco" class="form-control"  step=".01" required value="">
                     	</div>
                     
             	</div>
@@ -48,7 +48,7 @@
              	<div class="form-group row">
              	 <label for="imagens" class="col-sm-1 col-form-label">Imagens</label>
                     <div class="col-sm-5">
-                      <input type="file" name="imagens[]" id="imagens" class="form-control"    multiple="multiple"   accept="image/gif, image/jpeg, image/png, imagen/svg" required>
+                      <input type="file" name="imagens" id="imagens" class="form-control"    multiple="multiple"   accept="image/gif, image/jpeg, image/png, imagen/svg" required>
                     </div>
                             
              	</div>
