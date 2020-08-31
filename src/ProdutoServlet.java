@@ -16,6 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
@@ -63,7 +66,59 @@ public class ProdutoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
+		
+		try {
+			
+			String query="";
+			String id = request.getParameter("id");
+			
+			
+			if(  id != null) {
+			
+				query = "Select * from produtos where id = " + request.getParameter("id") ;
+			} else {
+				query = "Select * from produtos";
+			}
+			
+			
+			
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			JSONObject jsonObject = new JSONObject();
+			JSONArray array = new JSONArray();
+			
+			while(rs.next()) {
+				   JSONObject record = new JSONObject();
+				  
+				   record.put("ID", rs.getInt("id"));
+				   record.put("Descricao", rs.getString("descricao"));
+				   record.put("Preco", rs.getDouble("preco"));
+				   record.put("Ficha", rs.getString("ficha"));
+				   record.put("Ativo", rs.getString("ativo"));
+				   
+				   array.add(record);
+				}
+			
+			jsonObject.put("Produtos", array);
+			
+			
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+
+		    PrintWriter saida = response.getWriter();
+		
+			
+			 saida.println( jsonObject.toJSONString());
+
+		        saida.flush();
+		        saida.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**

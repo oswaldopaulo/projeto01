@@ -79,7 +79,7 @@
          <a href="produto_novo.jsp"><button type="button" class="btn btn-primary"> <i class="fa fa-edit"></i>    Novo Produto    </button></a>
                
 	  	 <div class="table-responsive">
-		  	<table class="table table-sm">
+		  	<table class="table table-sm" id="produtos">
 		  	<tr>
 		  		<th> # </th>
 		  		<th> Id </th>
@@ -89,6 +89,7 @@
 		  		
 		  	</tr>
 		  	
+		  	<!--  
 		  	 <tr>
 		  		<td style="width: 50px; white-space: nowrap;"> 
 		  			<a href="produto_editar.jsp?id=1"  title="Editar"><i class="fas fa-edit fa-fw"></i></a>
@@ -100,7 +101,7 @@
 		  		<td> Preço </td>
 		  		
 		  	</tr>
-		  		
+		  		-->
 		  		
 		  		
 		  	
@@ -113,6 +114,42 @@
 	  
   </div>
 <script type="text/javascript">
+
+	fetch("ProdutoServlet").then(function(response) {
+	  var contentType = response.headers.get("content-type");
+	  if(contentType && contentType.indexOf("application/json") !== -1) {
+	    return response.json().then(function(json) {
+	      // process your JSON further
+	    	//console.log(json.Produtos);
+	    	orderAddRow(json.Produtos)
+	    });
+	  } else {
+	    console.log("Oops, we haven't got JSON!");
+	  }
+	});
+	
+	function orderAddRow($data) {
+	    $.each($data,function(index,value) {
+	        var row = '<tr><td>' + value.ID + '</td>'
+	            + '<td>' + value.name + '</td></tr>';
+	            
+	            
+	        var row = "<tr>"
+		  		+ "<td style='width: 50px; white-space: nowrap;'>" 
+  				+  "<a href=\"produto_editar.jsp?id=" + value.ID +  "\"  title=\"Editar\"><i class=\"fas fa-edit fa-fw\"></i></a>"
+  			    + "<a href=\"#\" onclick=\"modal('produto_remover.jsp?id=" + value.ID +  "')\"  title=\"Remover\"><i class=\"fas fa-trash-alt mr-1 red\"></i></a>"
+ 				+ "</td>"
+  				+ "<td>" + value.ID + "</td>"
+		  		+ "<td>" + value.Descricao + "</td>"
+		  		+ "<td> 0 </td>"
+		  		+ "<td>" + value.Preco +  "</td>";
+  		
+  	            +"</tr>"    
+  	            
+	        		$('#produtos').append(row);
+  	          
+	    });
+	}
 
 
 	function modal(id){
