@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import org.bson.Document;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -25,9 +26,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.ArrayList;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
 import com.mongodb.gridfs.GridFS;
 import com.mongodb.gridfs.GridFSDBFile;
 import com.mongodb.gridfs.GridFSInputFile;
@@ -129,38 +134,82 @@ public class ProdutoServlet extends HttpServlet {
 		//doGet(request, response);
 		
 		session = request.getSession();
-		int id=0;
+		 
 		  try{
-				PreparedStatement stmt = conn.prepareStatement("INSERT INTO `produtos`(`descricao`, `preco`, `ficha`, `ativo`) values (?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+			   
+				int id;
+				String query;
+			  	id = Integer.parseInt(request.getParameter("id"));
+			  	
+			  	if(id>0) {
+			  		
+			  		query = "UPDATE produtos set `descricao`=?, `preco`=?, `ficha`=?, `ativo`=? where id=" + id;
+			  		
+			  		PreparedStatement stmt = conn.prepareStatement(query);
+					  
+					Double preco = Double.parseDouble(request.getParameter("preco").replace(",", "."));
+					  
+					stmt.setString( 1, request.getParameter("descricao"));
+					stmt.setDouble(2, preco);
+					stmt.setString(3, request.getParameter("ficha"));
+					stmt.setString(4, request.getParameter("ativo").equals("S") ? "S" : "N");
+					
+					
+					
+					
+					
+					
+					stmt.executeUpdate();
+					
+					   
+			          String apaga = request.getParameter("apaga");
+			          if(apaga != null) {
+			        	  GridFS fsf = new ConexaoMongo().getTable("produto_imagens") ;
+						  //GridFS fsc = new ConexaoMongo().getTable("produto_imagens.chunks") ;
+						  	
+						 // fsf.find(new BasicDBObject("_id_produto", id));
+						  
+						  
+						  
+				          fsf.remove(new BasicDBObject("_id_produto", id));
+				          //fsc.remove(new BasicDBObject("files_id", id));
+			          }
+			          
+			          session.setAttribute("status", "Produto Atualizado com sucesso");
+					
+			  		
+			  	} else {
+			  		query = "INSERT INTO `produtos`(`descricao`, `preco`, `ficha`, `ativo`) values (?,?,?,?)";
+			  		
+			  		PreparedStatement stmt = conn.prepareStatement(query,  Statement.RETURN_GENERATED_KEYS);
+					  
+					Double preco = Double.parseDouble(request.getParameter("preco").replace(",", "."));
+					  
+					stmt.setString( 1, request.getParameter("descricao"));
+					stmt.setDouble(2, preco);
+					stmt.setString(3, request.getParameter("ficha"));
+					stmt.setString(4, request.getParameter("ativo").equals("S") ? "S" : "N");
+					
+					
+					
+					stmt.executeUpdate();
+					
+					 ResultSet rs = stmt.getGeneratedKeys();
+		                if(rs.next())
+		                {
+		                    id = rs.getInt(1);
+		                }
+		                session.setAttribute("status", "Produto Cadastrado com sucesso");
+					
+			  	}
 				
-				
-				  
-				Float preco = Float.parseFloat(request.getParameter("preco").replace(",", "."));
-				  
-				stmt.setString( 1, request.getParameter("descricao"));
-				stmt.setDouble(2, preco);
-				stmt.setString(3, request.getParameter("ficha"));
-				stmt.setString(4, request.getParameter("ativo").equals("S") ? "S" : "N");
-				
-				
-				
-				
-				
-				
-				stmt.executeUpdate();
-				
-				
-				 ResultSet rs = stmt.getGeneratedKeys();
-	                if(rs.next())
-	                {
-	                    id = rs.getInt(1);
-	                }
+			  
 	                
 	                
 	            
 				
-				   
-		          GridFS fs = new ConexaoMongo().getTable("produto_imagens") ;                    // GridFS for storing images
+			  		GridFS fs = new ConexaoMongo().getTable("produto_imagens") ;
+		                            // GridFS for storing images
 		          PrintWriter writer = null;
 		          
 		          try {
@@ -169,6 +218,9 @@ public class ProdutoServlet extends HttpServlet {
 		             
 		              return;
 		          }
+		          
+		       
+		         
 		          
 		          List<Part> fileParts = request.getParts().stream().filter(part -> "imagens".equals(part.getName()) && part.getSize() > 0).collect(Collectors.toList()); // Retrieves <input type="file" name="file" multiple="true">
 		          for (Part filePart : fileParts) {
@@ -193,9 +245,9 @@ public class ProdutoServlet extends HttpServlet {
         	 destino="produtos.jsp";
         
         	 
-        	 session.setAttribute("status", "Produto Cadastrado com sucesso");
+        	
 
-        	conn.close();
+        	//conn.close();
 		  } catch (Exception e){
 	           destino="erro.jsp";
 	           session.setAttribute("erro", e.getCause() );

@@ -9,7 +9,15 @@ import com.mongodb.gridfs.GridFS;
 public class ConexaoMongo {
 
 	     
-      
+	public DB  getConn() {
+		
+		
+		 MongoClient mongoClient = new MongoClient("localhost");
+         DB db = mongoClient.getDB("ifsp");
+         
+         return db;
+		
+	}
       
       public GridFS  getTable(String table) {
     	  
@@ -28,6 +36,9 @@ public class ConexaoMongo {
     	  }
     	  
       }
+      
+      
+      
       
       
 }

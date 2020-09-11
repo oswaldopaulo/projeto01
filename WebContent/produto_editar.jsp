@@ -26,7 +26,8 @@
             
               
 			<form role="form" action="ProdutoServlet" class="form" method="post" enctype="multipart/form-data">
-			 <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+			 <input type="hidden" id="id" name="id" />
+			 
 			 
 			 <div class="form-group row">
                     <label for="descricao" class="col-sm-1 col-form-label">Descrição</label>
@@ -48,8 +49,13 @@
              	<div class="form-group row">
              	 <label for="imagens" class="col-sm-1 col-form-label">Imagens</label>
                     <div class="col-sm-5">
-                      <input type="file" name="imagens" id="imagens" class="form-control"    multiple="multiple"   accept="image/gif, image/jpeg, image/png, imagen/svg" required>
+                      <input type="file" name="imagens" id="imagens" class="form-control"    multiple="multiple"   accept="image/gif, image/jpeg, image/png, imagen/svg">
                     </div>
+                    
+                      <div class="form-check">
+                                <input id="apaga" name="apaga" type="checkbox"  class="form-check-input" value="1">
+    							<label class="form-check-label" for="apaga" >Apagar imagens existentes?</label>
+							</div>
                             
              	</div>
                
@@ -98,8 +104,15 @@ fetch("ProdutoServlet?id=<%= request.getParameter("id") %>" ).then(function(resp
 	  if(contentType && contentType.indexOf("application/json") !== -1) {
 	    return response.json().then(function(json) {
 	      // process your JSON further
-	    	console.log(json.Produtos);
-	    	//orderAddRow(json.Produtos)
+	      
+	      
+	     
+	    	p = json.Produtos;
+	    	 console.log(p);
+	    	 $("#id").val(p[0].ID);
+	    	 $("#descricao").val(p[0].Descricao);
+	    	 $("#preco").val(p[0].Preco);
+	    	 $("#ficha").val(p[0].Ficha);
 	    });
 	  } else {
 	    console.log("Oops, we haven't got JSON!");

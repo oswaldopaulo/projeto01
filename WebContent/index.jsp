@@ -51,21 +51,10 @@
   <!-- Aqui termina o banner carrocel -->
   
    <!--  Produtos começa aqui -->
-   <div class="row mb-4" style="margin-left: 10px; margin-top: 0; margin-right: 10px">
+   <div class="row mb-4" id="produtos" style="margin-left: 10px; margin-top: 0; margin-right: 10px">
    
 		<!-- loop -->   
-	    <div class="col-md-3 themed-grid-col">
-	    <a href="details.jsp?id=1">
-			<img src="img/img.jpg" alt="figura produto">
-		</a>
-	    <div>
-	
-			<h3><a href="details.jsp?id=1">Tapete Aladin</a></h3>
-	
-			<span>R$ 999,99</span>
-	
-		</div>
-	    </div>
+	    
 	  
 	  <!-- fim do loop -->
 	  
@@ -74,7 +63,43 @@
 	  
   </div>
   <!-- Produtos termina aqui -->
-  
+  <script type="text/javascript">
+
+	fetch("ProdutoServlet").then(function(response) {
+	  var contentType = response.headers.get("content-type");
+	  if(contentType && contentType.indexOf("application/json") !== -1) {
+	    return response.json().then(function(json) {
+	      // process your JSON further
+	    	//console.log(json.Produtos);
+	    	orderAddRow(json.Produtos)
+	    });
+	  } else {
+	    console.log("Oops, we haven't got JSON!");
+	  }
+	});
+	
+	function orderAddRow($data) {
+	    $.each($data,function(index,value) {
+	        var row = '<tr><td>' + value.ID + '</td>'
+	            + '<td>' + value.name + '</td></tr>';
+	            
+	        var row = "<div class=\"col-md-3 themed-grid-col\">"
+					    + "<a href=\"details.jsp?id=" + value.ID + "\">"
+						+	"<img src=\"img/img.jpg\" alt=\"figura produto\"></a>"
+					    + "<div>"
+					
+						+	"<h3><a href=\"details.jsp?id=" + value.ID + "\">" + value.Descricao + "</a></h3>"
+					
+						+	"<span>R$ " + value.Preco +  "</span>"
+					
+						+ "</div></div>";
+	   
+  	            
+	        		$('#produtos').append(row);
+  	          
+	    });
+	}
+	</script>
   
   
 <%@include file="footer.jsp" %>
