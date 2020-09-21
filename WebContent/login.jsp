@@ -10,13 +10,19 @@
 		<h3>Logar no site</h3>
     <div class="row mb-4" style="margin: 20px;" >
 	     <div class="col-md-12">
-	    	<form role="form" action="ProdutoServlet" class="form" method="post" enctype="multipart/form-data">
-			 <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+	     <% if (session.getAttribute("erro")!=null) { %>
+	     <span class="text-danger"> <%= session.getAttribute("erro") %> </span>
+	    	 
+	   <%  } %> 
+	     
+	    
+	    	<form role="form" action="LoginServlet" class="form" method="post">
+			 <input type="hidden" name="token" value="e10adc3949ba59abbe56e057f20f883e" />
 			 
 			 <div class="form-group row">
-                    <label for="login" class="col-sm-2 col-form-label">Email</label>
+                    <label for="email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
-                      <input type="email" name="login" id="login" class="form-control"  required value="">
+                      <input type="email" name="email" id="email" class="form-control"  required value="">
                     </div>
               </div>   
 			 
@@ -36,8 +42,8 @@
         
                
 					
-					<a href="#">Cancelar</a>
-					<button type="submit" class="btn btn-primary">Entrar</button>
+					
+					<button type="submit" class="btn btn-primary btn-lg">Entrar</button>
 				
             </form>
 	     </div>
@@ -53,12 +59,16 @@
     <h3>Não é cadastrado? Registre-se</h3>
     <div class="row mb-4" style="margin: 20px; border-bottom: 1px solid;" >
 	     <div class="col-md-12">
-	    	 	<form role="form" action="ProdutoServlet" class="form" method="post" enctype="multipart/form-data">
-			 <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+	      <% if (session.getAttribute("status")!=null) { %>
+	     <span class="text-danger"> <%= session.getAttribute("status") %> </span>
+	    	 
+	   <%  } %> 
+	    	 	<form role="form" action="LoginServlet" class="form" method="post">
+			
 			 <div class="form-group row">
-                    <label for="nome" class="col-sm-2 col-form-label">Nome</label>
+                    <label for="name" class="col-sm-2 col-form-label">Nome</label>
                     <div class="col-sm-10">
-                      <input type="text" name="nome" id="nome" class="form-control"  required value="">
+                      <input type="text" name="name" id="name" class="form-control"  required value="">
                     </div>
               </div>   
 			 
@@ -93,8 +103,8 @@
         
                
 					
-					<a href="#">Cancelar</a>
-					<button type="submit" class="btn btn-primary">Entrar</button>
+					
+					<button type="submit" class="btn btn-primary btn-lg">Cadastrar</button>
 				
             </form>
 	     </div>

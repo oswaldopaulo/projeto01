@@ -52,7 +52,11 @@
     
   </div>
 </footer>
-<script src="js/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="js/jquery-3.5.1.slim.min.js" type="text/javascript"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery.slim.min.js"><\/script>')</script><script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/setsession.js" type="text/javascript"></script>
 </html>
+<% 
+	session.setAttribute("erro", null);
+	session.setAttribute("status", null);
+%>

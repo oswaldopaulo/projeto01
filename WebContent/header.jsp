@@ -41,7 +41,7 @@
   
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Contatos</a>
@@ -59,16 +59,43 @@
     
 
         <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> Usuario</a>
+         <% if( session.getAttribute("username") != null) {%>
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"><%= session.getAttribute("username") %></i> </a>
         <div class="dropdown-menu" aria-labelledby="dropdown03">
-          <a class="dropdown-item" href="#">Profile</a>
-          <a class="dropdown-item" href="#">Logout</a>
-       
+        
+     
+      <a class="dropdown-item" href="#">Profile </a>
+          <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+          <form id="logout-form" action="LoginServlet" method="POST" style="display: none;">
+
+
+
+                                          <input type="hidden" value="1" name="logout">
+
+
+
+                                 </form>
+  
+  
+   		
+   	
         </div>
+        <% }  else {%>
+        
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user">Entrar</i> </a>
+        <div class="dropdown-menu" aria-labelledby="dropdown03">
+        
+     <a class="dropdown-item" href="login.jsp">Entrar / Registar </a>
+      
+     
+        
+   	</a>
+        
+   		<% } %>
       </li>
     
      <li class="nav-item">
-      <a class="nav-link" href="carrinho.jsp"><span class="text-primary" id="carrinhoqtd">0</span><i class="fas fa-cart-plus fa-fw"></i> Carrinho <span class="text-primary" id="carrinhopreco">R$ 0</span></a>
+      <a class="nav-link" href="carrinho.jsp"><span class="text-primary" id="carrinhoqtd"></span><i class="fas fa-cart-plus fa-fw"></i> Carrinho <span class="text-primary" id="carrinhopreco"></span></a>
       </li>
       
   

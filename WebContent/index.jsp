@@ -8,7 +8,7 @@
       <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
-      <div class="carousel-item active" style="height: 500px">
+      <div class="carousel-item active h500" >
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#EEE"/></svg>
         <div class="container">
           <div class="carousel-caption">
@@ -48,7 +48,7 @@
   <!-- Aqui termina o banner carrocel -->
   
    <!--  Produtos começa aqui -->
-   <div class="row mb-4" id="produtos" style="margin-left: 10px; margin-top: 0; margin-right: 10px">
+   <div class="row mb-4 produto_marging" id="produtos">
    
 		<!-- loop -->   
 	    
