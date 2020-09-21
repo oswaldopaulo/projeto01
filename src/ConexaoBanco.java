@@ -8,7 +8,7 @@ public class ConexaoBanco {
     private final String BANCO = "ifsp";   
     private final String LOGIN = "root";  
     private final String SENHA = "123456";     
-    private final String HOST = "localhost"; 
+    private final String HOST = "192.168.0.115"; 
     public Connection getConnection() {
 
         try {

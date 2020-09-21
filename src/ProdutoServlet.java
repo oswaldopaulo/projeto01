@@ -73,15 +73,31 @@ public class ProdutoServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		
+		session = request.getSession();
 		
 		try {
 			
 			String query="";
 			String id = request.getParameter("id");
+			String rid = request.getParameter("rid");
+			 if(  id != null && rid != null) {
+				 
+				 query = "Delete  from produtos where id = " + request.getParameter("id") ;
+				 PreparedStatement stmt = conn.prepareStatement(query);
+				 stmt.executeUpdate();
+				 
+				 GridFS fsf = new ConexaoMongo().getTable("produto_imagens") ;
+				 fsf.remove(new BasicDBObject("_id_produto", id));
+				
+				 session.setAttribute("status", "Produto "+ id + " removido com sucesso");
+				 
+				 RequestDispatcher rd = request.getRequestDispatcher("produtos.jsp");
+				 rd.forward(request, response);
+		         
+				 
+			 }
 			
-			
-			if(  id != null) {
+			else if(  id != null) {
 			
 				query = "Select * from produtos where id = " + request.getParameter("id") ;
 			} else {

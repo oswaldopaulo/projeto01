@@ -24,26 +24,9 @@
 			  </div>
 	     </div>
 	     
-	     <div class="col-md-12">
-			<div class="row mb-4" style="border-bottom: 1px solid;" >
-			     <div class="col-md-4">
-			     
+	     <div class="col-md-12" id="produtos">
 		
-			    	<img src="img/500x300.png" alt="imagem do produto" class="img-thumbnail" style="width: 75px;height: 50px;  float: left; margin-right: 10px"/>
-			    	
-			    	<h6> Produto 1</h6>
-			    	<p>descricao</p>
-			     </div>
-			      <div class="col-md-2">
-			    	 <input name="qtd" type="number" class="form-control" value="1" style="width: 50px" />
-			     </div>
-			       <div class="col-md-2">
-			    	<i class="far fa-trash-alt fa-2x"></i>
-			     </div>
-			      <div class="col-md-4">
-			    	 R$ 999,99
-			     </div>
-			  </div>
+			  
 	     </div>
 	</div>
     <div class="col-md-4 detail-grid-col" style="background-color: Gainsboro;">
@@ -54,13 +37,13 @@
 	    	 Subtotal
 	     </div>
 	      <div class="col-md-4" style="text-align: right;">
-	    	 R$ 999,99
+	    	 <div id="valor"> R$ 999,99</div>
 	     </div>
 	       <div class="col-md-8">
 	    	 Frete
 	     </div>
 	      <div class="col-md-4" style="text-align: right;">
-	    	 R$ 999,99
+	    	 R$ 0,0
 	     </div>
      </div>
      
@@ -71,7 +54,7 @@
 	    	 <h5>Total</h5>
 	     </div>
 	      <div class="col-md-4" style="text-align: right;">
-	    	 <h5> R$ 999,99</h5>
+	    	 <h5> <span id="total"> R$ 999,99 </span></h5>
 	     </div>
 	      
      </div>
@@ -87,7 +70,62 @@
 	  
   </div>
 
-  
+  <script type="text/javascript">
+
+	fetch("SessionServlet").then(function(response) {
+	  var contentType = response.headers.get("content-type");
+	  if(contentType && contentType.indexOf("application/json") !== -1) {
+	    return response.json().then(function(json) {
+	      // process your JSON further
+	    	//console.log(json.Produtos);
+	    	orderAddRow(json.Carrinho)
+	    });
+	  } else {
+	    console.log("Oops, we haven't got JSON!");
+	  }
+	});
+	
+	function orderAddRow($data) {
+		var valor = 0;
+	    $.each($data,function(index,value) {
+	    	
+	    	valor += value.Preco;
+	        
+	            
+	            
+	        var row = 	"<div class=\"row mb-4\" style=\"border-bottom: 1px solid;\" >"
+		     + "<div class=\"col-md-4\">"
+		     
+				
+		    +	"<img src=\"ImagensServlet?id=" + value.ID + "\" alt=\"imagem do produto\" class=\"img-thumbnail\" style=\"width: 75px;height: autopx;  float: left; margin-right: 10px\"/>"
+		    	
+			+   "<h6>" + value.Descricao + "</h6>"
+		   // +	"<p>descricao</p>"
+		    + "</div>"
+		    +  "<div class=\"col-md-2\">"
+		    +	 "<input name=\"qtd\" type=\"number\" class=\"form-control\" value=\"" + value.qtd + "\" style=\"width: 50px\" />"
+		    + "</div>"
+		    +   "<div class=\"col-md-2\">"
+		    +	"<i class=\"far fa-trash-alt fa-2x\"></i>"
+		    + "</div>"
+		    +  "<div class=\"col-md-4\">"
+		    +	 "R$ " + value.Preco + ""
+		    + "</div>"
+		  +   "</div>";
+  	            
+	        		$('#produtos').append(row);
+  	          
+	    });
+	    
+	    $('#valor').empty();
+		$('#valor').append(("R$ " + valor.toFixed(2)).replace(".",","));
+		
+		$('#total').empty();
+		$('#total').append(("R$ " + valor.toFixed(2)).replace(".",","));
+	
+	    
+	}
+  </script>
   
   
 <%@include file="footer.jsp" %>

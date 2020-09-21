@@ -137,7 +137,7 @@
 	        var row = "<tr>"
 		  		+ "<td style='width: 50px; white-space: nowrap;'>" 
   				+  "<a href=\"produto_editar.jsp?id=" + value.ID +  "\"  title=\"Editar\"><i class=\"fas fa-edit fa-fw\"></i></a>"
-  			    + "<a href=\"#\" onclick=\"modal('produto_remover.jsp?id=" + value.ID +  "')\"  title=\"Remover\"><i class=\"fas fa-trash-alt mr-1 red\"></i></a>"
+  			    + "<a href=\"#\" onclick=\"modal('ProdutoServlet?rid=1&id=" + value.ID +  "')\"  title=\"Remover\"><i class=\"fas fa-trash-alt mr-1 red\"></i></a>"
  				+ "</td>"
   				+ "<td>" + value.ID + "</td>"
 		  		+ "<td>" + value.Descricao + "</td>"

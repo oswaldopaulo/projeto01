@@ -8,33 +8,30 @@
       <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
-        <div class="container">
-          <div class="carousel-caption text-left">
-            <h1>Example headline.</h1>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+      <div class="carousel-item active" style="height: 500px">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#EEE"/></svg>
         <div class="container">
           <div class="carousel-caption">
-            <h1>Another example headline.</h1>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+           
+           <a href="#"><img src="img/banner-home-generico-ofertas-0917-d-v2.png"/></a>
+    
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#EEE"/></svg>
+        <div class="container">
+          <div class="carousel-caption">
+            <a href="#"><img src="img/banner-home-generico-pneus-0915-d.png"/></a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+      
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#EEE"/></svg>
         <div class="container">
           <div class="carousel-caption text-right">
-            <h1>One more for good measure.</h1>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+           <a href="#"><img src="img/banner-home-generico-selecao-de-smart-tvs-0918-d.png"/></a>
           </div>
         </div>
       </div>
@@ -83,14 +80,14 @@
 	        var row = '<tr><td>' + value.ID + '</td>'
 	            + '<td>' + value.name + '</td></tr>';
 	            
-	        var row = "<div class=\"col-md-3 themed-grid-col\">"
+	        var row = "<div class=\"col-md-3 themed-grid-col text-left\">"
 					    + "<a href=\"details.jsp?id=" + value.ID + "\">"
-						+	"<img src=\"img/img.jpg\" alt=\"figura produto\"></a>"
+						+	"<img src=\"ImagensServlet?id=" + value.ID + "\" alt=\"figura produto\" width=301px height=auto/></a>"
 					    + "<div>"
 					
 						+	"<h3><a href=\"details.jsp?id=" + value.ID + "\">" + value.Descricao + "</a></h3>"
 					
-						+	"<span>R$ " + value.Preco +  "</span>"
+						+	"<h3>R$ " + value.Preco +  "</h3>"
 					
 						+ "</div></div>";
 	   

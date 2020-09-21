@@ -1,0 +1,365 @@
+[{
+  "_id": {
+    "$oid": "5f46fe7f287b806d0a8d73f5"
+  },
+  "_id_produto": 15,
+  "filename": "UsersoswaldopauloDocumentscalc2-5_1.jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-08-27T00:29:51.411Z"
+  },
+  "length": 620556,
+  "contentType": "image",
+  "md5": "f59e4211be4359d6781006d7ab646750"
+},{
+  "_id": {
+    "$oid": "5f46fe7f287b806d0a8d73f9"
+  },
+  "_id_produto": 15,
+  "filename": "UsersoswaldopauloDocumentscalc2-4.jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-08-27T00:29:51.465Z"
+  },
+  "length": 255970,
+  "contentType": "image",
+  "md5": "645927e8dd9a90077c3e3acf1996c7fc"
+},{
+  "_id": {
+    "$oid": "5f46ff4f99d8ec27a16538d6"
+  },
+  "_id_produto": 16,
+  "filename": "UsersoswaldopauloDocumentscalc2-5_2.jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-08-27T00:33:19.690Z"
+  },
+  "length": 275648,
+  "contentType": "image",
+  "md5": "0409f884ebc2044bd4f929809a001def"
+},{
+  "_id": {
+    "$oid": "5f46ff4f99d8ec27a16538d9"
+  },
+  "_id_produto": 16,
+  "filename": "UsersoswaldopauloDocumentscalc2-5_1.jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-08-27T00:33:19.740Z"
+  },
+  "length": 620556,
+  "contentType": "image",
+  "md5": "f59e4211be4359d6781006d7ab646750"
+},{
+  "_id": {
+    "$oid": "5f46ffc85367533626bb41e6"
+  },
+  "_id_produto": 17,
+  "filename": "UsersoswaldopauloDocumentscalc2-5_2.jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-08-27T00:35:20.195Z"
+  },
+  "length": 275648,
+  "contentType": "image",
+  "md5": "0409f884ebc2044bd4f929809a001def"
+},{
+  "_id": {
+    "$oid": "5f46ffc85367533626bb41e9"
+  },
+  "_id_produto": 17,
+  "filename": "UsersoswaldopauloDocumentscalc2-5_1.jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-08-27T00:35:20.260Z"
+  },
+  "length": 620556,
+  "contentType": "image",
+  "md5": "f59e4211be4359d6781006d7ab646750"
+},{
+  "_id": {
+    "$oid": "5f665c24b28d11600cb17643"
+  },
+  "_id_produto": 10,
+  "filename": "camiseta-oxer-cord-ii-feminina-img (1).jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:29:40.146Z"
+  },
+  "length": 34526,
+  "contentType": "image",
+  "md5": "4329bc4e3330a9c81fea4ea8706b6be3"
+},{
+  "_id": {
+    "$oid": "5f665c24b28d11600cb17645"
+  },
+  "_id_produto": 10,
+  "filename": "camiseta-oxer-cord-ii-feminina-img (2).jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:29:40.263Z"
+  },
+  "length": 25604,
+  "contentType": "image",
+  "md5": "8446ec2a8234e23c1121714f33b5be18"
+},{
+  "_id": {
+    "$oid": "5f665c24b28d11600cb17647"
+  },
+  "_id_produto": 10,
+  "filename": "camiseta-oxer-cord-ii-feminina-img.jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:29:40.270Z"
+  },
+  "length": 33398,
+  "contentType": "image",
+  "md5": "99dd1e2b74626dc547b4ec282e973a25"
+},{
+  "_id": {
+    "$oid": "5f665c37b28d11600cb1764a"
+  },
+  "_id_produto": 11,
+  "filename": "relogio-digital-x-games-xmppd552-unissex-img (1).jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:29:59.154Z"
+  },
+  "length": 50271,
+  "contentType": "image",
+  "md5": "68fb37e879f05d79012bfacc37d0371c"
+},{
+  "_id": {
+    "$oid": "5f665c37b28d11600cb1764c"
+  },
+  "_id_produto": 11,
+  "filename": "relogio-digital-x-games-xmppd552-unissex-img (2).jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:29:59.159Z"
+  },
+  "length": 46591,
+  "contentType": "image",
+  "md5": "40c1832a5f1dc5b2a88b56cd3436eaf9"
+},{
+  "_id": {
+    "$oid": "5f665c37b28d11600cb1764e"
+  },
+  "_id_produto": 11,
+  "filename": "relogio-digital-x-games-xmppd552-unissex-img (3).jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:29:59.163Z"
+  },
+  "length": 45808,
+  "contentType": "image",
+  "md5": "1114329384aabcda735b7f83edf92b35"
+},{
+  "_id": {
+    "$oid": "5f665c37b28d11600cb17650"
+  },
+  "_id_produto": 11,
+  "filename": "relogio-digital-x-games-xmppd552-unissex-img.jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:29:59.167Z"
+  },
+  "length": 44883,
+  "contentType": "image",
+  "md5": "5098ed395d1f1b3f3049a92b637f1759"
+},{
+  "_id": {
+    "$oid": "5f665cc4b28d11600cb17677"
+  },
+  "_id_produto": 12,
+  "filename": "relogio-digital-x-games-xmppd555-unissex-img (1).jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:32:20.197Z"
+  },
+  "length": 47141,
+  "contentType": "image",
+  "md5": "2bf23346f3f29b0a1074362ebfd09117"
+},{
+  "_id": {
+    "$oid": "5f665cc4b28d11600cb17679"
+  },
+  "_id_produto": 12,
+  "filename": "relogio-digital-x-games-xmppd555-unissex-img (2).jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:32:20.203Z"
+  },
+  "length": 41522,
+  "contentType": "image",
+  "md5": "48973f16ad86a0ccdbea837aed818760"
+},{
+  "_id": {
+    "$oid": "5f665cc4b28d11600cb1767b"
+  },
+  "_id_produto": 12,
+  "filename": "relogio-digital-x-games-xmppd555-unissex-img (3).jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:32:20.208Z"
+  },
+  "length": 52843,
+  "contentType": "image",
+  "md5": "e6ac719560cce637bc320c35ee23c52f"
+},{
+  "_id": {
+    "$oid": "5f665cc4b28d11600cb1767d"
+  },
+  "_id_produto": 12,
+  "filename": "relogio-digital-x-games-xmppd555-unissex-img.jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:32:20.213Z"
+  },
+  "length": 43474,
+  "contentType": "image",
+  "md5": "7fd4ad5f406435b3babc670e8228b270"
+},{
+  "_id": {
+    "$oid": "5f665cceb28d11600cb17681"
+  },
+  "_id_produto": 13,
+  "filename": "tenis-oxer-slip-feminino-img (1).jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:32:30.695Z"
+  },
+  "length": 35333,
+  "contentType": "image",
+  "md5": "c1974c84ab7c5ff6ef9723ece0a37b93"
+},{
+  "_id": {
+    "$oid": "5f665cceb28d11600cb17683"
+  },
+  "_id_produto": 13,
+  "filename": "tenis-oxer-slip-feminino-img (2).jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:32:30.698Z"
+  },
+  "length": 23520,
+  "contentType": "image",
+  "md5": "0c9319f29ff82d59a161ba27a6489dfd"
+},{
+  "_id": {
+    "$oid": "5f665cceb28d11600cb17685"
+  },
+  "_id_produto": 13,
+  "filename": "tenis-oxer-slip-feminino-img (3).jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:32:30.702Z"
+  },
+  "length": 32112,
+  "contentType": "image",
+  "md5": "bcea6687f38268a790de189e8879dbae"
+},{
+  "_id": {
+    "$oid": "5f665cceb28d11600cb17687"
+  },
+  "_id_produto": 13,
+  "filename": "tenis-oxer-slip-feminino-img.jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:32:30.706Z"
+  },
+  "length": 77051,
+  "contentType": "image",
+  "md5": "d30a44276d6eec8101804e19fe3b44d1"
+},{
+  "_id": {
+    "$oid": "5f665cdeb28d11600cb1768b"
+  },
+  "_id_produto": 14,
+  "filename": "top-fitness-com-bojo-oxer-bartak-adulto-img (1).jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:32:46.039Z"
+  },
+  "length": 37227,
+  "contentType": "image",
+  "md5": "551d389840546340efaed72c2cb54f17"
+},{
+  "_id": {
+    "$oid": "5f665cdeb28d11600cb1768d"
+  },
+  "_id_produto": 14,
+  "filename": "top-fitness-com-bojo-oxer-bartak-adulto-img (2).jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:32:46.042Z"
+  },
+  "length": 57892,
+  "contentType": "image",
+  "md5": "20af7d9e8e16d7d37556e1e7d41e61ec"
+},{
+  "_id": {
+    "$oid": "5f665cdeb28d11600cb1768f"
+  },
+  "_id_produto": 14,
+  "filename": "top-fitness-com-bojo-oxer-bartak-adulto-img (3).jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:32:46.045Z"
+  },
+  "length": 46496,
+  "contentType": "image",
+  "md5": "a7db0b876a8202f074daa697242a01d9"
+},{
+  "_id": {
+    "$oid": "5f665cdeb28d11600cb17691"
+  },
+  "_id_produto": 14,
+  "filename": "top-fitness-com-bojo-oxer-bartak-adulto-img (4).jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:32:46.048Z"
+  },
+  "length": 26403,
+  "contentType": "image",
+  "md5": "09466244fc19f86b09f416c21463ca01"
+},{
+  "_id": {
+    "$oid": "5f665cdeb28d11600cb17693"
+  },
+  "_id_produto": 14,
+  "filename": "top-fitness-com-bojo-oxer-bartak-adulto-img.jpg",
+  "aliases": null,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2020-09-19T19:32:46.051Z"
+  },
+  "length": 37847,
+  "contentType": "image",
+  "md5": "52928dd384e14ce421875adfa7167466"
+}]

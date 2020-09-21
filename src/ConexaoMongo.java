@@ -12,7 +12,7 @@ public class ConexaoMongo {
 	public DB  getConn() {
 		
 		
-		 MongoClient mongoClient = new MongoClient("localhost");
+		 MongoClient mongoClient = new MongoClient("192.168.0.115");
          DB db = mongoClient.getDB("ifsp");
          
          return db;
@@ -22,7 +22,7 @@ public class ConexaoMongo {
       public GridFS  getTable(String table) {
     	  
     	  try {
-	    	  MongoClient mongoClient = new MongoClient("localhost");
+	    	  MongoClient mongoClient = new MongoClient("192.168.0.115");
 	          DB db = mongoClient.getDB("ifsp");
 	          
 	          GridFS fs = new GridFS(db, table);   

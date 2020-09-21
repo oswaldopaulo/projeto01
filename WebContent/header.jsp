@@ -68,7 +68,7 @@
       </li>
     
      <li class="nav-item">
-      <a class="nav-link" href="carrinho.jsp"><i class="fas fa-cart-plus fa-fw"></i> Carrinho</a>
+      <a class="nav-link" href="carrinho.jsp"><span class="text-primary" id="carrinhoqtd">0</span><i class="fas fa-cart-plus fa-fw"></i> Carrinho <span class="text-primary" id="carrinhopreco">R$ 0</span></a>
       </li>
       
   
