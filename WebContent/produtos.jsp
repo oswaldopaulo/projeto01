@@ -1,5 +1,7 @@
 
 <%@include file="header.jsp" %>
+<%@include file="checkadmin.jsp" %>
+
 <!-- Modal -->
 <div class="modal fade" id="ModalRemover" tabindex="-1" role="dialog" aria-labelledby="ModalRemoverTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

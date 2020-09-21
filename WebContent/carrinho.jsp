@@ -61,6 +61,7 @@
      
 		 
 		    <button type="button" class="btn btn-danger btn-lg" style="width: 80%; margin-left: 10%; margin-right: auto; "> <i class="fas fa-cart-plus fa-fw"></i> Continuar </button>
+		    <p style="margin-left: 10%; margin-right: 20px; margin-top: 20px;"><a href="index.jsp"> Continuar Comprando</a> </p>
 		    <p style="margin-left: 20px; margin-right: 20px; margin-top: 20px; text-align: center;"><i class="fas fa-info-circle" style="color: RoyalBlue"></i> Se você possuir cupom ou vale poderá usar na proxima etapa</p>    
 		    
 		 

@@ -1,5 +1,5 @@
 <%@include file="header.jsp" %>
-
+<%@include file="checkadmin.jsp" %>
 
   
   <div class="container-fluid">

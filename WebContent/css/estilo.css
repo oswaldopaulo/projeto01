@@ -179,3 +179,18 @@ button{
 .login-div {
 	background-color: Gainsboro; margin: 10px;
 }
+
+.index-titulo {
+  display: block;
+  padding: 0.5rem 1rem;
+}
+
+.index-titulo:hover, .nav-link:focus {
+  text-decoration: none;
+}
+
+.index-titulo.disabled {
+  color: #000;
+  pointer-events: none;
+  cursor: default;
+}

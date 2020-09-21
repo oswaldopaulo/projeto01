@@ -79,6 +79,7 @@ public class LoginServlet extends HttpServlet {
 			  		session.setAttribute("username", null);
 					session.setAttribute("email", null);
 					session.setAttribute("autenticado", null);
+					session.setAttribute("admin", null);
 					
 					RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 					rd.forward(request, response);
@@ -105,7 +106,8 @@ public class LoginServlet extends HttpServlet {
 						session.setAttribute("username", rs.getString("name"));
 						session.setAttribute("email", rs.getString("email"));
 						session.setAttribute("autenticado", 1);
-						
+						session.setAttribute("admin", rs.getString("admin"));
+						stmt.close();
 						RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 						rd.forward(request, response);
 						
@@ -118,12 +120,24 @@ public class LoginServlet extends HttpServlet {
 			  	
 			  	if(id != null) {
 			  		
-			  		query = "UPDATE produtos set `name`=?, `password`=md5(?) where id=" + id;
+			  		
+			  		if(!request.getParameter("senha").equals(request.getParameter("confirma")) ) {
+			  			
+			  			session.setAttribute("status", "Confirmação Diferente");
+			  			
+						RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
+						rd.forward(request, response);
+			  			
+			  		}
+			  		
+			  		
+			  		query = "UPDATE users set  `password`=md5(?) where email=?";
 			  		
 			  		PreparedStatement stmt = conn.prepareStatement(query);
 					  
-			  		stmt.setString( 1, request.getParameter("name"));
-					stmt.setString(2, request.getParameter("password"));
+			  		stmt.setString( 1, request.getParameter("senha"));
+			  		stmt.setString( 2, session.getAttribute("email").toString());
+					
 					
 					
 					
@@ -131,12 +145,13 @@ public class LoginServlet extends HttpServlet {
 					
 					
 					stmt.executeUpdate();
-					
+					stmt.close();
 					   
 			          
 			          
-			          session.setAttribute("status", "Usuário Atualizado com sucesso");
-					
+			          session.setAttribute("status", "Senha alterada");
+			          RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
+						rd.forward(request, response);
 			  		
 			  	} else {
 			  		

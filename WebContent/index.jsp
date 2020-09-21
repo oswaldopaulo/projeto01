@@ -75,19 +75,34 @@
 	  }
 	});
 	
+	
+	function pesquisar($text){
+		fetch("ProdutoServlet?text=" + text).then(function(response) {
+			  var contentType = response.headers.get("content-type");
+			  if(contentType && contentType.indexOf("application/json") !== -1) {
+			    return response.json().then(function(json) {
+			      // process your JSON further
+			    	//console.log(json.Produtos);
+			    	orderAddRow(json.Produtos)
+			    });
+			  } else {
+			    console.log("Oops, we haven't got JSON!");
+			  }
+			});
+	}
 	function orderAddRow($data) {
 	    $.each($data,function(index,value) {
-	        var row = '<tr><td>' + value.ID + '</td>'
-	            + '<td>' + value.name + '</td></tr>';
+	     
 	            
 	        var row = "<div class=\"col-md-3 themed-grid-col text-left\">"
 					    + "<a href=\"details.jsp?id=" + value.ID + "\">"
 						+	"<img src=\"ImagensServlet?id=" + value.ID + "\" alt=\"figura produto\" width=301px height=auto/></a>"
 					    + "<div>"
 					
-						+	"<h3><a href=\"details.jsp?id=" + value.ID + "\">" + value.Descricao + "</a></h3>"
+						+	"<h4 class=\"nav-link\"><a href=\"details.jsp?id=" + value.ID + "\">" + value.Descricao + "</a></h4>"
 					
 						+	"<h3>R$ " + value.Preco +  "</h3>"
+						+ "<button type=\"button\" id=\"bt-carrinho\" onclick=\"setsession(" + value.ID + ")\" class=\"btn btn-danger\"> <i class=\"fas fa-cart-plus fa-fw\"></i> Comprar </button>"
 					
 						+ "</div></div>";
 	   

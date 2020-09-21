@@ -61,7 +61,7 @@ fetch("ProdutoServlet?id=<%= request.getParameter("id") %>" ).then(function(resp
 	    	 //console.log(p);
 	    	 $("#id").html(p[0].ID);
 	    	 $("#descricao").html(p[0].Descricao);
-	    	 $("#preco").html(p[0].Preco);
+	    	 $("#preco").html("R$ " + (p[0].Preco.toFixed(2)).replace(".",","));
 	    	 $("#ficha").html(p[0].Ficha);
 	    	 $("#cartao").html(p[0].Preco/10);
 	    	 

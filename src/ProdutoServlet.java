@@ -65,6 +65,7 @@ public class ProdutoServlet extends HttpServlet {
        
     }
     
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -74,12 +75,33 @@ public class ProdutoServlet extends HttpServlet {
 		
 		session = request.getSession();
 		
+		session.setAttribute("status", null);
+		session.setAttribute("erro", null);
+			
+	
+		
 		try {
+			
+			
+		
 			
 			String query="";
 			String id = request.getParameter("id");
 			String rid = request.getParameter("rid");
 			 if(  id != null && rid != null) {
+				 
+					if (!session.getAttribute("admin").equals("1") ) {
+						session.setAttribute("username", null);
+						session.setAttribute("email", null);
+						session.setAttribute("autenticado", null);
+						session.setAttribute("admin", null);
+						
+						session.setAttribute("erro", "Não autenticado");
+						
+						RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+						rd.forward(request, response);
+						
+					}
 				 
 				 query = "Delete  from produtos where id = " + request.getParameter("id") ;
 				 PreparedStatement stmt = conn.prepareStatement(query);
@@ -149,16 +171,34 @@ public class ProdutoServlet extends HttpServlet {
 		//doGet(request, response);
 		
 		session = request.getSession();
+		
+		session.setAttribute("status", null);
+		session.setAttribute("erro", null);
+		
+		if (session.getAttribute("admin").equals("0") ) {
+			session.setAttribute("username", null);
+			session.setAttribute("email", null);
+			session.setAttribute("autenticado", null);
+			session.setAttribute("admin", null);
+			
+			session.setAttribute("erro", "Não autenticado");
+			
+			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+			rd.forward(request, response);
+			
+		}
 		 
 		  try{
 			   
-				int id;
+				
 				String query;
-			  	id = Integer.parseInt(request.getParameter("id"));
+			  	String id = request.getParameter("id");
 			  	
-			  	if(id>0) {
+			
+			  	
+			  	if(id != null) {
 			  		
-			  		query = "UPDATE produtos set `descricao`=?, `preco`=?, `ficha`=?, `ativo`=? where id=" + id;
+			  		query = "UPDATE produtos set `descricao`=?, `preco`=?, `ficha`=?, `ativo`=? where id=" + Integer.parseInt(id);
 			  		
 			  		PreparedStatement stmt = conn.prepareStatement(query);
 					  
@@ -186,7 +226,7 @@ public class ProdutoServlet extends HttpServlet {
 						  
 						  
 						  
-				          fsf.remove(new BasicDBObject("_id_produto", id));
+				          fsf.remove(new BasicDBObject("_id_produto", Integer.parseInt(id)));
 				          //fsc.remove(new BasicDBObject("files_id", id));
 			          }
 			          
@@ -194,6 +234,7 @@ public class ProdutoServlet extends HttpServlet {
 					
 			  		
 			  	} else {
+			  		
 			  		query = "INSERT INTO `produtos`(`descricao`, `preco`, `ficha`, `ativo`) values (?,?,?,?)";
 			  		
 			  		PreparedStatement stmt = conn.prepareStatement(query,  Statement.RETURN_GENERATED_KEYS);
@@ -212,7 +253,7 @@ public class ProdutoServlet extends HttpServlet {
 					 ResultSet rs = stmt.getGeneratedKeys();
 		                if(rs.next())
 		                {
-		                    id = rs.getInt(1);
+		                    id = String.valueOf(rs.getInt(1));
 		                }
 		                session.setAttribute("status", "Produto Cadastrado com sucesso");
 					
@@ -246,7 +287,7 @@ public class ProdutoServlet extends HttpServlet {
 						
 		              
 		              GridFSInputFile file = fs.createFile(fileContent, fileName);
-		              file.put("_id_produto", id);
+		              file.put("_id_produto", Integer.parseInt(id));
 		              file.setContentType("image");
 		              file.save();
 		              writer.println(file.toString());

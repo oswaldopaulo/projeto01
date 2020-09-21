@@ -63,8 +63,10 @@
         <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"><%= session.getAttribute("username") %></i> </a>
         <div class="dropdown-menu" aria-labelledby="dropdown03">
         
-     
-      <a class="dropdown-item" href="#">Profile </a>
+     <% if(session.getAttribute("admin").equals("1"))  { %>
+     		   <a class="dropdown-item" href="produtos.jsp">Produtos </a>
+     <% } %>
+      <a class="dropdown-item" href="profile.jsp">Profile </a>
           <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
           <form id="logout-form" action="LoginServlet" method="POST" style="display: none;">
 
